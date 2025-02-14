@@ -11,7 +11,9 @@ resource "helm_release" "prometheus-stack" {
   chart            = "kube-prometheus-stack"
   namespace        = "monitoring"
   create_namespace = false
-  version          = "68.4.5"
+  version          = var.chart_version
+
+  values = [file("./modules/monitoring/values/values.yml")]
 
   depends_on = [kubernetes_namespace_v1.monitoring]
 }

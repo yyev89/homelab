@@ -20,5 +20,6 @@ provider "kubernetes" {
 }
 
 module "monitoring" {
-  source = "./modules/monitoring"
+  source        = "./modules/monitoring"
+  chart_version = "47.0.0"
 }
